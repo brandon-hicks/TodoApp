@@ -1,0 +1,3 @@
+/Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/obj/Debug/netcoreapp2.2/ToDoApp.csprojAssemblyReference.cache
+/Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/obj/Debug/netcoreapp2.2/ToDoApp.AssemblyInfoInputs.cache
+/Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/obj/Debug/netcoreapp2.2/ToDoApp.AssemblyInfo.cs

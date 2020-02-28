@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 using Microsoft.VisualBasic;
 using Swashbuckle.AspNetCore.Swagger;
 using ToDoApp.Models;
@@ -44,11 +45,11 @@ namespace ToDoApp
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("5.0.0", new Info
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "Todo API",
-                    Version = "5.0.0",
-                    Description = "Todo API tutorial using MongoDB"
+                    Version = "v1",
+                    Description = "Todo API"
                 });
             });
 
@@ -57,12 +58,17 @@ namespace ToDoApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

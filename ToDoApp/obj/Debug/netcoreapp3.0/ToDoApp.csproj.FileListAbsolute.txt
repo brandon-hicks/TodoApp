@@ -23,3 +23,8 @@
 /Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/obj/Debug/netcoreapp3.0/ToDoApp.csproj.CopyComplete
 /Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/obj/Debug/netcoreapp3.0/ToDoApp.dll
 /Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/obj/Debug/netcoreapp3.0/ToDoApp.pdb
+/Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/bin/Debug/netcoreapp3.0/Microsoft.OpenApi.dll
+/Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/bin/Debug/netcoreapp3.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/bin/Debug/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/bin/Debug/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/brandonhicks/RiderProjects/ToDoApp/ToDoApp/obj/Debug/netcoreapp3.0/ToDoApp.MvcApplicationPartsAssemblyInfo.cs

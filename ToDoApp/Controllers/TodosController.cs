@@ -72,7 +72,7 @@ namespace ToDoApp.Controllers
 
             await _repo.Delete(id);
             
-            return new OkResult();
+            return new NoContentResult();
         }
     }
 }
