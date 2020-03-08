@@ -9,5 +9,6 @@ namespace ToDoApp.Models
         public long Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public bool IsComplete { get; set; } 
     }
 }

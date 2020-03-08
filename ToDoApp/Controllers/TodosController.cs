@@ -74,5 +74,17 @@ namespace ToDoApp.Controllers
             
             return new NoContentResult();
         }
+        
+        //patch api/todos/1/completionStatus
+        [HttpPatch("{id}/completionStatus")]
+        public async Task<ActionResult<Todo>> Patch(long id)
+        {
+            var todoFromDb = await _repo.GetTodo(id);
+            
+            if (todoFromDb == null)
+                return new NotFoundResult();
+            
+            return await _repo.UpdateCompletionStatus(id, todoFromDb);
+        }
     }
 }

@@ -34,6 +34,9 @@ namespace ToDoApp.Models
 
         public async Task Create(Todo todo)
         {
+            // default every new todo to not complete.
+            todo.IsComplete = false;
+            
             await _context.Todos.InsertOneAsync(todo);
         }
 
@@ -63,6 +66,15 @@ namespace ToDoApp.Models
         public async Task<long> GetNextId()
         {
             return await _context.Todos.CountDocumentsAsync(new BsonDocument()) + 1;
+        }
+
+        public async Task<Todo> UpdateCompletionStatus(long id, Todo todo)
+        {
+            FilterDefinition<Todo> filter = Builders<Todo>.Filter.Eq(m => m.Id, id);
+            todo.IsComplete = !todo.IsComplete;
+            var update = Builders<Todo>.Update.Set("IsComplete", todo.IsComplete);
+            _context.Todos.UpdateOne(filter, update);
+            return todo;
         }
     }
 }

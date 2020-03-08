@@ -21,5 +21,8 @@ namespace ToDoApp.Models
         Task<bool> Delete(long id);
 
         Task<long> GetNextId();
+        
+        //api/1/completionStatus/[Patch]
+        Task<Todo> UpdateCompletionStatus(long id, Todo todo);
     }
 }
