@@ -19,6 +19,7 @@
         <e p="Dockerfile" t="Include" />
         <e p="Models" t="Include">
           <e p="AuthenticateModel.cs" t="Include" />
+          <e p="BasicAuthenticationHandler.cs" t="Include" />
           <e p="ExtentionMethods.cs" t="Include" />
           <e p="ITodoContext.cs" t="Include" />
           <e p="ITodoRepository.cs" t="Include" />
