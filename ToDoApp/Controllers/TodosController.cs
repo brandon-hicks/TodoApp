@@ -1,12 +1,45 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration.UserSecrets;
 using ToDoApp.Models;
 
 namespace ToDoApp.Controllers
 {
+    //[Authorize]
+    //[ApiController]
     [Produces("application/json")]
     [Route("api/[Controller]")]
+
+   /* public class UserController : ControllerBase
+    {
+        private IUserService _userService;
+
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> Authenticate([FromBody]AuthenticateModel model)
+
+        private var user = await _userService.Authenticate(model.Username); 
+        If(user == null)
+            return BadRequest(new {message = "Username or Password is not valid."});
+
+        return ok(user);
+        
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var users = await _userService.GetAll();
+            return Ok(users);
+        }
+
+    }*/
+    
+    [Authorize]
     public class TodosController: Controller
     {
         private readonly ITodoRepository _repo;
@@ -34,12 +67,20 @@ namespace ToDoApp.Controllers
             
             return new ObjectResult(todo);
         }
-        
+
         //Post api/todos
         [HttpPost]
-        public async Task<ActionResult<Todo>> Post([FromBody] Todo todo)
+        public async Task<ActionResult<Todo>> Post([FromBody] TodoPostRequest todoPostBody)
         {
-            todo.Id = await _repo.GetNextId();
+            
+            var id = await _repo.GetNextId();
+            var todo = new Todo()
+            {
+                Content = todoPostBody.Content,
+                Title = todoPostBody.Title,
+                Id = id,
+                IsComplete = false,
+            };
             await _repo.Create(todo);
             return new OkObjectResult(todo);
         }

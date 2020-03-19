@@ -67,6 +67,7 @@ namespace ToDoApp.Models
         {
             return await _context.Todos.CountDocumentsAsync(new BsonDocument()) + 1;
         }
+        
 
         public async Task<Todo> UpdateCompletionStatus(long id, Todo todo)
         {
